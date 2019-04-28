@@ -13,11 +13,14 @@ crome_opt.add_argument('--proxy-server=%s' % proxy)
 def ok(phone):
     driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver', chrome_options=crome_opt)
     driver.get("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone")
-    driver.find_element_by_id('field_phone').clear().send_keys(phone)
+    driver.find_element_by_id('field_phone').clear()
+    driver.find_element_by_id('field_phone').send_keys(phone)
     time.sleep(5)
     driver.find_element_by_xpath('//div[@class="form-actions mt-5x"]/input').click()
     time.sleep(5)
     driver.quit()
+
+
 def yan(phone):
     driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver')
     driver.get("https://passport.yandex.ru/registration/mail?from=mail&origin=home_desktop_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F")
@@ -30,3 +33,15 @@ def yan(phone):
     driver.find_element_by_id('phone').send_keys(phone)
     time.sleep(5)
     driver.find_element_by_xpath('//div[@class="registration__send-code show-block"]/button').click()
+    time.sleep(5)
+    driver.quit()
+
+
+def inst(phone):
+    driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver')
+    driver.get("https://www.instagram.com/accounts/password/reset/?hl=ru")
+    driver.find_element_by_id('fa31f573dea65e').send_keys(phone)
+    driver.find_element_by_xpath('//div[@class="                  Igw0E     IwRSH      eGOV_         _4EzTm      MGdpg                         K7QFQ                  _6wM3Z                                                             "]/button').click()
+    time.sleep(5)
+    driver.quit()
+    

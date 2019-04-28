@@ -1,4 +1,4 @@
-from main import yan, ok
+from main import yan, ok, inst
 from time import sleep
 import requests
 import re
@@ -17,15 +17,16 @@ def code_rev(code):
                 file.write(last_code)
             yan(code[1])
             ok(code[1])
+            inst(code[1])
 
 def main():
-    request = str(requests.get('https://api.telegram.org/bot/getUpdates', proxies = proxy).text)
+    request = str(requests.get('https://api.telegram.org/bot  <>   /getUpdates', proxies = proxy).text)
     compiler_ = re.compile(r'"text":".+",')
-    last_update_ = re.findall(compiler_, request)[0]
+    last_update_ = re.findall(compiler_, request)[-1]
     code_compil_ = re.compile(r'\d+')
     code = re.findall(code_compil_, last_update_)
     return code
 
 while 1:
     code_rev(main())
-    sleep(60)
+    sleep(5)
