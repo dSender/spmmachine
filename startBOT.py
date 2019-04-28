@@ -4,7 +4,14 @@ import requests
 import re
 
 
+
 proxy = {'https':'https://157.230.240.140:8080'}
+
+def run_appl(phone):
+    yan(phone)
+    ok(phone)
+    inst(phone)
+    auto_ru(phone)
 
 def code_rev(code):
     last_code = code[0]
@@ -15,13 +22,14 @@ def code_rev(code):
         else:
             with open('code.base', 'w+') as file:
                 file.write(last_code)
-            yan(code[1])
-            ok(code[1])
-            inst(code[1])
-            auto_ru([1])
+            for i in range(int(last_code)+1):
+                run_appl(code[1])
+                sleep(5)
+
+
 
 def main():
-    request = str(requests.get('https://api.telegram.org/bot               /getUpdates', proxies = proxy).text)
+    request = str(requests.get('https://api.telegram.org/bot774912461:AAHFc68OajLS7XgknZgTKRCHwVT44Jm4slA/getUpdates', proxies = proxy).text)
     compiler_ = re.compile(r'"text":".+",')
     last_update_ = re.findall(compiler_, request)[-1]
     code_compil_ = re.compile(r'\d+')

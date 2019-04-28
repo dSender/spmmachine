@@ -5,12 +5,11 @@ import time
 
 
 user_ = {1:'name',2:'family',3:'fa44iliee',4:'958yisavfsgv'}
-proxy = '157.230.240.140:8080'
-
 crome_opt = webdriver.ChromeOptions()
-crome_opt.add_argument('--proxy-server=%s' % proxy)
+crome_opt.add_argument('--proxy-server=%s' % '157.230.240.140:8080')
 
 def ok(phone):
+
     driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver', chrome_options=crome_opt)
     driver.get("https://ok.ru/dk?cmd=AnonymRegistrationEnterPhone&st.cmd=anonymRegistrationEnterPhone")
     driver.find_element_by_id('field_phone').clear()
@@ -22,6 +21,7 @@ def ok(phone):
 
 
 def yan(phone):
+
     driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver', chrome_options=crome_opt)
     driver.get("https://passport.yandex.ru/registration/mail?from=mail&origin=home_desktop_ru&retpath=https%3A%2F%2Fmail.yandex.ru%2F")
     driver.find_element_by_id('firstname').send_keys(user_[1])
@@ -38,11 +38,17 @@ def yan(phone):
 
 
 def inst(phone):
-    driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver', chrome_options=crome_opt)
-    driver.get("https://www.instagram.com/accounts/password/reset/?hl=ru")
-    driver.find_element_by_id('fa31f573dea65e').send_keys(phone)
-    driver.find_element_by_xpath('//div[@class="                  Igw0E     IwRSH      eGOV_         _4EzTm      MGdpg                         K7QFQ                  _6wM3Z                                                             "]/button').click()
-    time.sleep(5)
+
+    driver = webdriver.Chrome(executable_path = '/home/tevirp/Desktop/scripts/spamer/chromedriver')
+    driver.get("https://www.instagram.com/?hl=ru")
+    driver.find_element_by_name('emailOrPhone').send_keys(phone)
+    time.sleep(1)
+    driver.find_element_by_name('username').send_keys('ewbaBHvsfhjdvsadf')
+    time.sleep(1)
+    driver.find_element_by_name('password').send_keys('43fds35basmvcx')
+    time.sleep(1)
+    driver.find_elements_by_xpath('//button[@class="_0mzm- sqdOP  L3NKy       "]')[1].click()
+    time.sleep(10)
     driver.quit()
 
 def auto_ru(phone):
@@ -55,6 +61,9 @@ def auto_ru(phone):
     driver.find_element_by_xpath('//button[@class="Button Button_color_blue Button_size_l Button_type_button Button_width_default"]').click()
     time.sleep(5)
     driver.quit()
+
+
+
 
 
 
