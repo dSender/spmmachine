@@ -1,6 +1,6 @@
 # spmmachine
 
-                        Don't forget to enter Telegram api in code
+                        Don't forget to enter the Telegram api in the startBOT.py(line 32)!!!
                         
-                     To check proxy for proxy list >>> cd proxy_tester > python pt.py
+                     Proxy checker  >>> cd proxy_tester > python pt.py
     
