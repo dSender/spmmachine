@@ -7,4 +7,6 @@
                      Enter the proxies in the main.py array (comment there)
                      
                      ~/python startBot.py ----> run bot
+                     
+                     Alex 16 years old blyat nechem zanyaca
     
