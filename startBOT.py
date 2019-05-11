@@ -27,8 +27,8 @@ def code_rev(code):
                 p.start()
 
 def main():
-    while 1:
-        request = str(requests.get('https://api.telegram.org/bot774912461:AAHFc68OajLS7XgknZgTKRCHwVT44Jm4slA/getUpdates', proxies = proxy).text)
+    while 1:                                                                #!!!!!!!!!!!!!!!!!!!!!!!!!!
+        request = str(requests.get('https://api.telegram.org/bot< TELEGRAM API THERE !!!!!!!!! delete (<>) >/getUpdates', proxies = proxy).text)
         compiler_ = re.compile(r'"text":".+",')
         last_update_ = re.findall(compiler_, request)
         if len(last_update_) > 0:
