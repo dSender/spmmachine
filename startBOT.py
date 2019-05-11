@@ -29,7 +29,7 @@ def code_rev(code):
 
 def main():
     while 1:
-        request = str(requests.get('https://api.telegram.org/bot  <>  /getUpdates', proxies = proxy).text) # ******
+        request = str(requests.get('https://api.telegram.org/bot< ENTER TELEGRAM API HERE >/getUpdates', proxies = proxy).text) # ******
         compiler_ = re.compile(r'"text":".+",')
         last_update_ = re.findall(compiler_, request)
         if len(last_update_) > 0:
