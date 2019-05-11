@@ -2,17 +2,16 @@ from main import yan, ok, inst, auto_ru
 from time import sleep
 import requests
 import re
-
+from multiprocessing import Process
 
 
 proxy = {'https':'https://157.230.240.140:8080'}
 
-
-def run_appl(phone,i):
-    yan(phone,i)
-    ok(phone,i)
-    inst(phone,i)
-    auto_ru(phone,i)
+def run_appl(phone):
+    inst(phone)
+    ok(phone)
+    yan(phone)
+    auto_ru(phone)
 
 def code_rev(code):
     last_code = code[0]
@@ -21,15 +20,15 @@ def code_rev(code):
         if str(text) == last_code:
             pass
         else:
-
             with open('code.base', 'w+') as file:
                 file.write(last_code)
             for i in range(int(last_code)+1):
-                run_appl(code[1],i)
+                p = Process(target=run_appl, args=(code[1],))
+                p.start()
 
 def main():
     while 1:
-        request = str(requests.get('https://api.telegram.org/bot< ENTER TELEGRAM API HERE >/getUpdates', proxies = proxy).text) # ******
+        request = str(requests.get('https://api.telegram.org/bot774912461:AAHFc68OajLS7XgknZgTKRCHwVT44Jm4slA/getUpdates', proxies = proxy).text)
         compiler_ = re.compile(r'"text":".+",')
         last_update_ = re.findall(compiler_, request)
         if len(last_update_) > 0:
@@ -38,6 +37,6 @@ def main():
             code = re.findall(code_compil_, last_update_)
             return code
 
-while 1:
-    code_rev(main())
-    sleep(5)
+if __name__ == '__main__':
+    while 1:
+        code_rev(main())
