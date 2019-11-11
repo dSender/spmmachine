@@ -8,5 +8,5 @@
                      
                      ~/python startBot.py ----> run bot
                      
-                     Alex 16 years old blyat nechem zanyaca
+                     
     
